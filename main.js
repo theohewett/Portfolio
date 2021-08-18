@@ -3,7 +3,8 @@ const cursorSpan = document.querySelector(".cursor");
 const topText = document.querySelector(".top");
 const midText = document.querySelector(".middle");
 const bottomText = document.querySelector(".bottom");
-const scrollButton = document.querySelector(".scroll")
+const scrollButton = document.querySelector(".scroll");
+const mainContent = document.querySelector("main");
 
 const textArray = [
     "Hello, I'm Theo.",
@@ -28,6 +29,7 @@ const type = () => {
         cursorSpan.classList.remove("typing");
         if (textArrayIndex >= textArray.length-1) {
             scrollButton.classList.remove("scroll");
+            mainContent.classList.remove("unloaded");
             return;
         } else {
             setTimeout(erase, newTextDelay);

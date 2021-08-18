@@ -53,9 +53,15 @@ nav {
     border: none;
     font-family: sans-serif;
     font-size: 1em;
+    font-weight: bold;
     color: black;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+}
+
+.contact-dropdown button:hover,
+.social a:hover {
+    color: gray;
 }
 
 .contact {
@@ -111,10 +117,18 @@ nav {
     bottom: 8em;
     border: none;
     background-color: transparent;
+    width: 6em;
+    height: 6em;
+    border-radius: 50%;
+}
+
+.landing-page button:hover {
+    background-color: rgba(255, 255, 255, 40%);
 }
 
 .landing-page button a i {
     font-size: 3em;
+    padding: 0.2em;
 }
 
 .landing-page .scroll {
@@ -146,6 +160,10 @@ nav {
 }
 
 /* Main */
+
+main.unloaded {
+    display: none;
+}
 
 .container {
     width: 100vw;
