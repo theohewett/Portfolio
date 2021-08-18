@@ -30,17 +30,16 @@ const type = () => {
             scrollButton.classList.remove("scroll");
             return;
         } else {
-            setTimeout(log, newTextDelay);
             setTimeout(erase, newTextDelay);
         }
     }
 }
 
 const log = () => {
-    if (textArrayIndex == 0) {
-        topText.textContent += typedTextSpan.textContent;
-    } else if (textArrayIndex == 1) {
-        bottomText.textContent += typedTextSpan.textContent;
+    if (textArrayIndex == 1) {
+        topText.textContent += textArray[0];
+    } else if (textArrayIndex == 2) {
+        bottomText.textContent += textArray[1];
     }
 }
 
@@ -58,6 +57,7 @@ const erase = () => {
         if (textArrayIndex >= textArray.length) {
             return;
         } else {
+            log();
             setTimeout(type, newTextDelay);
         }
     }
