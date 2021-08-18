@@ -1,12 +1,17 @@
 const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");
+const topText = document.querySelector(".top");
+const midText = document.querySelector(".middle");
+const bottomText = document.querySelector(".bottom");
+const scrollButton = document.querySelector(".scroll")
 
 const textArray = [
     "Hello, I'm Theo.",
-    "I'm a Full-Stack Developer."
+    "I'm a Full-Stack Developer.",
+    "Scroll down to learn more."
 ]
-const typingDelay = 200;
-const erasingDelay = 100;
+const typingDelay = 80;
+const erasingDelay = 40;
 const newTextDelay = 2000;
 let textArrayIndex = 0;
 let charIndex = 0;
@@ -16,12 +21,26 @@ const type = () => {
         if (!cursorSpan.classList.contains("typing")) {
             cursorSpan.classList.add("typing");
         }
-        typedTextSpan.textContent += textArray[textArrayIndex][charIndex];
+        typedTextSpan.innerHTML += textArray[textArrayIndex][charIndex];
         charIndex++;
         setTimeout(type, typingDelay);
     } else {
         cursorSpan.classList.remove("typing");
-        setTimeout(erase, newTextDelay);
+        if (textArrayIndex >= textArray.length-1) {
+            scrollButton.classList.remove("scroll");
+            return;
+        } else {
+            setTimeout(log, newTextDelay);
+            setTimeout(erase, newTextDelay);
+        }
+    }
+}
+
+const log = () => {
+    if (textArrayIndex == 0) {
+        topText.textContent += typedTextSpan.textContent;
+    } else if (textArrayIndex == 1) {
+        bottomText.textContent += typedTextSpan.textContent;
     }
 }
 
@@ -37,9 +56,10 @@ const erase = () => {
         cursorSpan.classList.remove("typing");
         textArrayIndex++;
         if (textArrayIndex >= textArray.length) {
-            textArrayIndex = 0;
+            return;
+        } else {
+            setTimeout(type, newTextDelay);
         }
-        setTimeout(type, newTextDelay);
     }
 }
 
