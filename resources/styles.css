@@ -9,7 +9,9 @@ html {
     scroll-behavior: smooth;
 }
 
-a {
+/* Landing Page */
+
+header a {
     text-decoration: none;
     color: inherit;
     font-family: sans-serif;
@@ -237,12 +239,35 @@ footer.unloaded {
 .up a i {
     font-size: 2em;
     padding: 0.2em;
+    color: black;
 }
+
+#to-projects,
+#to-about {
+    position: absolute;
+    border: 0.2em solid black;
+    border-radius: 5px;
+    position: absolute;
+    left: 3em;
+    bottom: 3em;
+    background-color: transparent;
+    padding: 1em;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+#to-projects:hover {
+    background-color: beige;
+}
+
+/* About Me */
 
 .flex-container {
     max-width: 100vw;
     max-height: 100vh;
     display: flex;
+    position: relative;
 }
 
 #about {
@@ -259,6 +284,49 @@ footer.unloaded {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    opacity: 0;
+    transition: 1s ease;
+    padding: 4em;
+}
+
+.tooltip .text {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    list-style: square;
+    color: darkgray;
+}
+
+.spotahome {
+    bottom: 10em;
+    left: 0;
+}
+
+.starling {
+    top: 9em;
+    left: 14em;
+}
+
+.codecademy {
+    bottom: 8.5em;
+    right: 5em;
+}
+
+.tooltip:hover {
+    opacity: 1;
+}
+
+.spotahome:hover {
+    transform: translateY(4em);
+}
+
+.starling:hover,
+.codecademy:hover {
+    transform: translateY(-4em);
 }
 
 .about {
@@ -283,20 +351,24 @@ footer.unloaded {
     line-height: 2;
 }
 
+/* Projects section */
+
 .grid-container {
+    position: relative;
     background-color: whitesmoke;
     width: 100vw;
     height: 100vh;
-    padding: 3em 5em;
+    padding: 5em;
     display: grid;
     grid-template: repeat(4, 1fr) / repeat(3, 1fr);
     grid-gap: 3em;
     grid-template-areas:
         "a title title"
         "a b c"
-        "a b c"
-        "a . c";
+        ". b c"
+        ". . c";
     margin-bottom: -4em;
+    border-bottom: 3px solid black;
 }
 
 .project {
@@ -330,4 +402,48 @@ footer.unloaded {
     text-transform: uppercase;
     font-size: 4em;
     letter-spacing: 0.1em;
+}
+
+/* Footer */
+
+.foot-nav {
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    padding-top: 1.2em;
+    padding-bottom: 0.8em;
+    align-items: center;
+    align-content: center;
+}
+
+.foot-nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5em;
+}
+
+.foot-nav a:hover {
+    color: gray;
+}
+
+.foot-social,
+.foot-contact,
+.copyright,
+.foot-nav li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.foot-social li,
+.foot-contact li,
+.copyright {
+    font-size: 1em;
+    text-transform: uppercase;
+    padding: 0 1.5em;
+    align-self: center;
+    align-content: center;
+    font-family: monospace;
 }

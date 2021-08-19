@@ -5,6 +5,7 @@ const topText = document.querySelector(".top");
 const bottomText = document.querySelector(".bottom");
 const scrollButton = document.querySelector(".landing-page button");
 const mainContent = document.querySelector("main");
+const footerContent = document.querySelector("footer");
 const skipButton = document.querySelector(".skip");
 
 const textArray = [
@@ -29,8 +30,6 @@ const type = () => {
     } else {
         cursorSpan.classList.remove("typing");
         if (textArrayIndex >= textArray.length-1) {
-            skipButton.style.setProperty("display", "none");
-            mainContent.classList.remove("unloaded");
             reveal();
             return;
         } else {
@@ -48,6 +47,9 @@ const log = () => {
 }
 
 const reveal = () => {
+    skipButton.style.setProperty("display", "none");
+    mainContent.classList.remove("unloaded");
+    footerContent.classList.remove("unloaded");
     scrollButton.style.setProperty("opacity", 1);
     topText.style.setProperty("opacity", 1);
     bottomText.style.setProperty("opacity", 1);
@@ -100,11 +102,9 @@ const closeContact = () => {
 
 const skip = () => {
     textArrayIndex = textArray.length;
-    cursorSpan.classList.remove("typing");
-    skipButton.style.setProperty("display", "none");
-    mainContent.classList.remove("unloaded");
     topText.textContent = textArray[0];
     bottomText.textContent = textArray[1];
     typedTextSpan.textContent = textArray[2];
     reveal();
+    cursorSpan.classList.remove("typing");
 }
