@@ -95,6 +95,10 @@ nav {
     font-size: 0.7em;
 }
 
+.contact .close:hover {
+    animation: wobble 1s infinite alternate;
+}
+
 .landing-page {
     display: flex;
     align-items: center;
@@ -152,7 +156,7 @@ nav {
     width: 0.05em;
     background-color: black;
     margin-left: 0.05em;
-    animation: blink 1s infinite;
+    animation: blink 1s linear infinite;
 }
 
 .cursor.typing {
@@ -162,6 +166,11 @@ nav {
 @keyframes blink {
     0%, 49%, 100% { background-color: black; }
     50%, 99% { background-color: transparent; }
+}
+
+@keyframes wobble {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Main */

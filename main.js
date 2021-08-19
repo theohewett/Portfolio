@@ -73,15 +73,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 // Contact card dropdown
 const contactList = document.querySelector(".contact");
+let open = false;
 
-const revealContact = () => {
-    contactList.style.setProperty("opacity", 1);
-    contactList.style.setProperty("pointer-events", "all");
-    contactList.style.setProperty("transform", "translateY(0px)");
+const toggleContact = () => {
+    if (open == false) {
+        contactList.style.setProperty("opacity", 1);
+        contactList.style.setProperty("pointer-events", "all");
+        contactList.style.setProperty("transform", "translateY(0px)");
+        open = true;
+    } else {
+        contactList.style.setProperty("opacity", 0);
+        contactList.style.setProperty("pointer-events", "none");
+        contactList.style.setProperty("transform", "translateY(-10px)");
+        open = false;
+    }
 }
 
 const closeContact = () => {
     contactList.style.setProperty("opacity", 0);
     contactList.style.setProperty("pointer-events", "none");
     contactList.style.setProperty("transform", "translateY(-10px)");
+    open = false;
 }
