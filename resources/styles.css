@@ -121,9 +121,14 @@ nav {
 .bottom {
     opacity: 0;    
     transition: opacity 4s ease;
+    font-family: monospace;
 }
 
-.landing-page button {
+.typed-text {
+    font-family: monospace;
+}
+
+.landing-page .scroll {
     position: absolute;
     bottom: 8em;
     border: none;
@@ -133,9 +138,10 @@ nav {
     border-radius: 50%;
     opacity: 0;
     transition: opacity 2s ease;
+    animation: push 3s infinite;
 }
 
-.landing-page button:hover {
+.landing-page .scroll:hover {
     background-color: rgba(255, 255, 255, 40%);
 }
 
@@ -145,6 +151,23 @@ nav {
 }
 
 /* Typing effect */
+
+.skip {
+    border: 0.2em solid black;
+    border-radius: 5px;
+    position: absolute;
+    right: 2.6em;
+    bottom: 2.6em;
+    background-color: transparent;
+    padding: 1em;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.skip:hover {
+    background-color: rgba(255, 255, 255, 40%);
+}
 
 .landing-page h1 {
     overflow: hidden;
@@ -173,6 +196,11 @@ nav {
     100% { transform: rotate(360deg); }
 }
 
+@keyframes push {
+    0%, 100% { bottom: 8em; }
+    50% { bottom: 5em; }
+}
+
 /* Main */
 
 main.unloaded {
@@ -180,7 +208,48 @@ main.unloaded {
 }
 
 .container {
+    max-width: 100vw;
+    max-height: 100vh;
+    display: flex;
+}
+
+#about {
     width: 100vw;
     height: 100vh;
-    border: 1px solid black;
+    border: 3em solid white;
+    background-color: beige;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.path {
+    width: 50%;
+    height: 100%;
+    background-image: url("../../../../Downloads/Career Path.jpg");
+}
+
+/* .path img {
+    width: 100%;
+    height: 100%;
+} */
+
+.about {
+    max-width: 50%;
+    height: 100%;
+    padding: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: right;
+}
+
+.about h1 {
+    padding-bottom: 3em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.about p {
+    line-height: 2;
 }

@@ -5,6 +5,7 @@ const topText = document.querySelector(".top");
 const bottomText = document.querySelector(".bottom");
 const scrollButton = document.querySelector(".landing-page button");
 const mainContent = document.querySelector("main");
+const skipButton = document.querySelector(".skip");
 
 const textArray = [
     "Hello, I'm Theo.",
@@ -28,6 +29,7 @@ const type = () => {
     } else {
         cursorSpan.classList.remove("typing");
         if (textArrayIndex >= textArray.length-1) {
+            skipButton.style.setProperty("display", "none");
             mainContent.classList.remove("unloaded");
             reveal();
             return;
@@ -94,4 +96,15 @@ const closeContact = () => {
     contactList.style.setProperty("pointer-events", "none");
     contactList.style.setProperty("transform", "translateY(-10px)");
     open = false;
+}
+
+const skip = () => {
+    textArrayIndex = textArray.length;
+    cursorSpan.classList.remove("typing");
+    skipButton.style.setProperty("display", "none");
+    mainContent.classList.remove("unloaded");
+    topText.textContent = textArray[0];
+    bottomText.textContent = textArray[1];
+    typedTextSpan.textContent = textArray[2];
+    reveal();
 }
