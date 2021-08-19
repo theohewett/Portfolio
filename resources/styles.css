@@ -121,11 +121,11 @@ nav {
 .bottom {
     opacity: 0;    
     transition: opacity 4s ease;
-    font-family: monospace;
+    font-family: sans-serif;
 }
 
 .typed-text {
-    font-family: monospace;
+    font-family: sans-serif;
 }
 
 .landing-page .scroll {
@@ -163,10 +163,12 @@ nav {
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    opacity: 0.2;
 }
 
 .skip:hover {
     background-color: rgba(255, 255, 255, 40%);
+    opacity: 1;
 }
 
 .landing-page h1 {
@@ -203,11 +205,41 @@ nav {
 
 /* Main */
 
-main.unloaded {
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main.unloaded,
+footer.unloaded {
     display: none;
 }
 
-.container {
+.up {
+    position: sticky;
+    align-self: flex-end;
+    border: none;
+    bottom: 2em;
+    background-color: transparent;
+    margin-right: 1em;
+    width: 4em;
+    height: 4em;
+    line-height: 0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.up:hover {
+    background-color: rgba(255, 235, 205, 40%);
+}
+
+.up a i {
+    font-size: 2em;
+    padding: 0.2em;
+}
+
+.flex-container {
     max-width: 100vw;
     max-height: 100vh;
     display: flex;
@@ -216,22 +248,18 @@ main.unloaded {
 #about {
     width: 100vw;
     height: 100vh;
-    border: 3em solid white;
-    background-color: beige;
     justify-content: space-between;
     align-content: center;
 }
 
 .path {
-    width: 50%;
-    height: 100%;
-    background-image: url("../../../../Downloads/Career Path.jpg");
-}
-
-/* .path img {
     width: 100%;
     height: 100%;
-} */
+    background-image: url("./media/Career Path.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 .about {
     max-width: 50%;
@@ -242,6 +270,7 @@ main.unloaded {
     align-items: flex-end;
     justify-content: center;
     text-align: right;
+    background-color: transparent;
 }
 
 .about h1 {
@@ -252,4 +281,53 @@ main.unloaded {
 
 .about p {
     line-height: 2;
+}
+
+.grid-container {
+    background-color: whitesmoke;
+    width: 100vw;
+    height: 100vh;
+    padding: 3em 5em;
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+    grid-gap: 3em;
+    grid-template-areas:
+        "a title title"
+        "a b c"
+        "a b c"
+        "a . c";
+    margin-bottom: -4em;
+}
+
+.project {
+    border: 1px dotted black;
+    background-image: url("./media/placeholder-image.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.title {
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: none;
+}
+
+.a {
+    grid-area: a;
+}
+
+.b {
+    grid-area: b;
+}
+
+.c {
+    grid-area: c;
+}
+
+.title h3 {
+    text-transform: uppercase;
+    font-size: 4em;
+    letter-spacing: 0.1em;
 }
