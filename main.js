@@ -1,9 +1,9 @@
+// Landing page animation
 const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");
 const topText = document.querySelector(".top");
-const midText = document.querySelector(".middle");
 const bottomText = document.querySelector(".bottom");
-const scrollButton = document.querySelector(".scroll");
+const scrollButton = document.querySelector(".landing-page button");
 const mainContent = document.querySelector("main");
 
 const textArray = [
@@ -28,8 +28,8 @@ const type = () => {
     } else {
         cursorSpan.classList.remove("typing");
         if (textArrayIndex >= textArray.length-1) {
-            scrollButton.classList.remove("scroll");
             mainContent.classList.remove("unloaded");
+            reveal();
             return;
         } else {
             setTimeout(erase, newTextDelay);
@@ -45,6 +45,12 @@ const log = () => {
     }
 }
 
+const reveal = () => {
+    scrollButton.style.setProperty("opacity", 1);
+    topText.style.setProperty("opacity", 1);
+    bottomText.style.setProperty("opacity", 1);
+}
+
 const erase = () => {
     if (charIndex > 0) {
         if (!cursorSpan.classList.contains("typing")) {
@@ -56,15 +62,26 @@ const erase = () => {
     } else {
         cursorSpan.classList.remove("typing");
         textArrayIndex++;
-        if (textArrayIndex >= textArray.length) {
-            return;
-        } else {
-            log();
-            setTimeout(type, newTextDelay);
-        }
+        log();
+        setTimeout(type, newTextDelay);
     }
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
     setTimeout(type, newTextDelay);
 });
+
+// Contact card dropdown
+const contactList = document.querySelector(".contact");
+
+const revealContact = () => {
+    contactList.style.setProperty("opacity", 1);
+    contactList.style.setProperty("pointer-events", "all");
+    contactList.style.setProperty("transform", "translateY(0px)");
+}
+
+const closeContact = () => {
+    contactList.style.setProperty("opacity", 0);
+    contactList.style.setProperty("pointer-events", "none");
+    contactList.style.setProperty("transform", "translateY(-10px)");
+}

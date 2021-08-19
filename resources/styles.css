@@ -88,11 +88,12 @@ nav {
       letter-spacing: 0.1em;
   }
 
-.contact-dropdown button:focus + ul {
-    opacity: 1;
-    pointer-events: all;
-    transform: translateY(0px);
-  }
+.contact .close {
+    position: absolute;
+    top: 0.6em;
+    right: 0.6em;
+    font-size: 0.7em;
+}
 
 .landing-page {
     display: flex;
@@ -102,14 +103,20 @@ nav {
     font-size: 3em;
 }
 
-.landing-page .text-container {
+.text-container {
     position: absolute;
     align-self: flex-start;
-    right: 3em;
+    right: 2.6em;
     text-align: right;
-    padding-top: 0.8em;
+    padding-top: 4em;
     max-width: 60%;
     font-size: 1em;
+}
+
+.top,
+.bottom {
+    opacity: 0;    
+    transition: opacity 4s ease;
 }
 
 .landing-page button {
@@ -120,6 +127,8 @@ nav {
     width: 6em;
     height: 6em;
     border-radius: 50%;
+    opacity: 0;
+    transition: opacity 2s ease;
 }
 
 .landing-page button:hover {
@@ -129,10 +138,6 @@ nav {
 .landing-page button a i {
     font-size: 3em;
     padding: 0.2em;
-}
-
-.landing-page .scroll {
-    display: none;
 }
 
 /* Typing effect */
